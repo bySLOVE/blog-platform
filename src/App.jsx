@@ -8,6 +8,7 @@ import Profile from './features/auth/Profile';
 import CreateArticlePage from './features/articles/CreateArticlePage';
 import EditArticlePage from './features/articles/EditArticlePage';
 import PrivateRoute from './components/PrivateRoute';
+import NotFoundPage from './components/NotFoundPage';
 
 const App = () => (
   <BrowserRouter>
@@ -43,6 +44,8 @@ const App = () => (
           </PrivateRoute>
         }
       />
+      <Route path="/not-found" element={<NotFoundPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );

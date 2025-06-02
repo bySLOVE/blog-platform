@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, Navigate } from 'react-router-dom';
 import {
   useGetArticleQuery,
   useDeleteArticleMutation,
@@ -26,7 +26,12 @@ function ArticlePage() {
   const isProcessing = isLiking || isUnLiking;
 
   if (isLoading) return <p>Загрузка статьи...</p>;
-  if (isError) return <p>Ошибка загрузки: {error?.status}</p>;
+  if (isError) {
+    if (error?.status === 404 || error?.originalStatus === 404) {
+      return <Navigate to="/not-found" replace />;
+    }
+    return <p>Ошибка загрузки: {error?.status || error?.originalStatus}</p>;
+  }
 
   const {
     title,
@@ -79,7 +84,7 @@ function ArticlePage() {
           <h1 className={styles.title}>{title}</h1>
 
           <button
-            className={`${styles.likeBtn} ${favorited ? styles.liked : ''}`}
+            className={`${styles.likeBtn} ${favorited ? styles.liked : ''} `}
             onClick={handleToggleFavorite}
             disabled={!token || isProcessing}
           >

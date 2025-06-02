@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SignUp.module.scss';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useRegisterUserMutation } from './authApi';
 import { setUser } from './authSlice';
 import { useDispatch } from 'react-redux';
@@ -115,6 +115,9 @@ const SignUp = () => {
               : serverErrors.password}
           </p>
         )}
+        {errors.password && (
+          <p className={styles.errorMessage}>{errors.password.message}</p>
+        )}
       </label>
 
       <label className={styles.label}>
@@ -150,6 +153,9 @@ const SignUp = () => {
       <button type="submit" disabled={isLoading} className={styles.button}>
         {isLoading ? 'Регистрация...' : 'Create'}
       </button>
+      <p className={styles.switchLink}>
+        Already have an account? <Link to="/sign-in">Sign In.</Link>
+      </p>
     </form>
   );
 };

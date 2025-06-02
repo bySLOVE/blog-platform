@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SignIn.module.scss';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useLoginUserMutation } from './authApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from './authSlice';
@@ -94,7 +94,7 @@ const SignIn = () => {
       </button>
 
       <p className={styles.bottomText}>
-        Don’t have an account? <a href="/sign-up">Sign Up</a>
+        Don’t have an account? <Link to="/sign-up">Sign Up</Link>
       </p>
     </form>
   );

@@ -83,7 +83,7 @@ const ArticleCard = ({
       <div className={styles.content}>
         <div className={styles.titleRow}>
           <Link to={`/articles/${slug}`} className={styles.title}>
-            <h2>{title}</h2>
+            <h2>{title?.trim() || 'Без названия'}</h2>
           </Link>
 
           <button
