@@ -1,0 +1,87 @@
+.sign-in-form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: #333;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.input {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #52c41a;
+  }
+}
+
+.inputError {
+  border-color: #f5222d !important;
+  background-color: #fff1f0;
+}
+
+.errorMessage {
+  color: #f5222d;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color:#7baaf7;
+  }
+
+  &:disabled {
+    background-color: #0056b3;
+    cursor: not-allowed;
+  }
+}
+
+.bottomText {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+
+  a {
+    color: #1890ff;
+    text-decoration: none;
+    margin-left: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
